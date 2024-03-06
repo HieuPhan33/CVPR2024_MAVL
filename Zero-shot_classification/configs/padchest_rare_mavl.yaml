@@ -1,0 +1,27 @@
+test_file: '/data/data/PadChest/test.csv'
+disease_book: 'observation explanation_padchest_rare.json'
+# concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
+concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
+
+dataset: 'padchest'
+root: '/data/data/PadChest/'
+model: 'mavl'
+model_path: '../checkpoints/cl_global_1e-1_true/checkpoint_40.pth'
+
+
+image_res: 224
+test_batch_size: 128
+
+d_model: 256
+base_model: 'resnet50'
+decoder: cross
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+N: 4
+H: 4
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
+self_attention: True
+pretrained: True
+mode: text
+class: rare

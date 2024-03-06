@@ -1,0 +1,22 @@
+train_file: '/data/data/siimacr/train.csv'
+valid_file: '/data/data/siimacr/val.csv'
+test_file: '/data/data/siimacr/test.csv'
+root: '/data/data/siimacr'
+dataset: 'siim'
+pretrain: ../../checkpoints/cl_global_1e-1_clean/checkpoint_40.pth
+
+model: mavl
+base_model: 'resnet50'
+image_res: 224
+batch_size: 512
+test_batch_size: 512
+temp: 0.07
+mlm_probability: 0.15
+queue_size: 8192
+momentum: 0.995
+alpha: 0.4
+d_model: 256
+data_pct: 0.01
+
+optimizer: {opt: adamW, lr: 1e-5, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1e-5, epochs: 60, min_lr: 1e-5, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 5, cooldown_epochs: 0}

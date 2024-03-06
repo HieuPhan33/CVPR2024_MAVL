@@ -1,0 +1,21 @@
+test_file: '/data/VLM/data/chexpertv1/CheXpert-v1.0/filter_test_labels.csv'
+disease_book: 'observation explanation.json'
+
+dataset: 'chexpert'
+root: '/data/data/chexpertv1'
+model: 'medklip'
+#model_path: '../checkpoints/ckpt_medklip_43.pth'
+model_path: ../Pretrain/data_file/MedKLIP/checkpoint_final.pth
+
+image_res: 224
+test_batch_size: 256
+
+d_model: 256
+res_base_model: 'resnet50'
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+N: 4
+H: 4
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
+chexpert_subset: True

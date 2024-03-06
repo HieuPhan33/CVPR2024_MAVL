@@ -1,0 +1,30 @@
+test_file: /data/data/rsna/test.csv
+disease_book: 'observation explanation.json'
+concept_book: '../Pretrain/concept_gen/gpt4_mimic.json'
+
+
+dataset: rsna
+root: /data/data/rsna/
+target: pneumonia
+model: mavl
+#model_path: '../checkpoints/cl_global_1e-1_true/checkpoint_43.pth'
+model_path: '../checkpoints/cl_global_1e-1_clean/checkpoint_40.pth'
+
+image_res: 224
+test_batch_size: 512
+
+d_model: 256
+base_model: 'resnet50'
+decoder: cross
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+N: 4
+H: 4
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
+self_attention: True
+pretrained: True
+mode: avg
+
+
+

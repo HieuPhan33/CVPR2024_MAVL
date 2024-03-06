@@ -1,0 +1,50 @@
+einops==0.4.1
+exposure==0.1.1
+#huggingface-hub==0.6.0
+iniconfig==1.1.1
+matplotlib==3.5.2
+nltk==3.7
+#numpy @ file:///opt/conda/conda-bld/numpy_and_numpy_base_1653915516269/work
+numpy
+omegaconf==2.2.2
+opencv-python==3.4.8.29
+openpyxl==3.0.10
+pandas==1.3.5
+Pillow==9.0.1
+#ruamel-yaml-conda @ file:///tmp/build/80754af9/ruamel_yaml_1616016701961/work
+ruamel_yaml==0.15.80
+scikit-image==0.18.1
+scikit-learn==1.0.2
+scipy==1.7.3
+scispacy==0.5.1
+sentencepiece==0.1.97
+SimpleITK
+spacy==3.4.3
+#torch @ file:///home/conda/feedstock_root/build_artifacts/pytorch-recipe_1627860371279/work
+# torchmetrics==0.9.3
+torchsummary==1.5.1
+# torchvision==0.10.0
+tornado==6.2
+tqdm==4.64.0
+pydicom
+gdown
+protobuf==3.20.*
+transformers==4.5.0
+tensorboard
+tensorboard-data-server
+tensorboard-plugin-wit
+tensorboardX
+ftfy
+regex
+tqdm
+accelerate==0.22.0
+wandb
+mmengine
+# torch==1.13.0
+# torchvision==0.14.0
+albumentations==0.5.1
+# timm==0.9.7 --no-deps
+huggingface_hub==0.17.3
+pytorch-metric-learning==2.3.0
+albumentations==0.5.1
+torchshow

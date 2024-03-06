@@ -1,0 +1,22 @@
+train_file: '/data/data/rsna/train.csv'
+valid_file: '/data/data/rsna/val.csv'
+test_file: '/data/data/rsna/test.csv'
+root: '/data/data/rsna/'
+dataset: 'rsna'
+pretrain: /data/01-code/VLM/medslip/Pretrain/data_file/MedKLIP/checkpoint_final.pth
+model_path: output_medklip_rsna_1/checkpoint_state.pth
+
+model: 'medklip'
+base_model: 'resnet50'
+image_res: 224
+batch_size: 256
+test_batch_size: 256
+temp: 0.07
+mlm_probability: 0.15
+queue_size: 8192
+momentum: 0.995
+alpha: 0.4
+data_pct: 0.01
+
+optimizer: {opt: adamW, lr: 1e-5, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1e-5, epochs: 60, min_lr: 1e-5, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 5, cooldown_epochs: 0}

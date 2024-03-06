@@ -1,0 +1,18 @@
+test_file: '/data/data/rsna/test.csv'
+disease_book: 'observation explanation.json'
+dataset: 'rsna'
+root: '/data/data/rsna'
+model: 'medklip'
+model_path: '../Pretrain/data_file/MedKLIP/checkpoint_final.pth'
+
+image_res: 224
+test_batch_size: 512
+
+d_model: 256
+res_base_model: 'resnet50'
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+N: 4
+H: 4
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'

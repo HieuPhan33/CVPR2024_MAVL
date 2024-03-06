@@ -1,0 +1,23 @@
+test_file: '/data/data/covid_rural/test.csv'
+disease_book: 'observation explanation.json'
+concept_book: '../Pretrain/concept_gen/gpt4_mimic_covid.json'
+
+dataset: 'covid-r'
+root: '/data/data/covid_rural'
+model: 'medslip2'
+model_path: '../checkpoints/cl_global_1e-1_true/checkpoint_40.pth'
+
+image_res: 224
+test_batch_size: 128
+
+d_model: 256
+base_model: 'resnet50'
+decoder: cross
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+N: 4
+H: 4
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
+self_attention: True
+pretrained: True

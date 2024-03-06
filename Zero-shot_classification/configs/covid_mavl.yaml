@@ -1,0 +1,24 @@
+test_file: '/data/data/covidx-cxr2/test_split.csv'
+disease_book: 'observation explanation.json'
+concept_book: '../Pretrain/concept_gen/gpt4_mimic_covid.json'
+
+dataset: 'covid-cxr2'
+root: '/data/data/covidx-cxr2/train'
+model: 'mavl'
+model_path: '../checkpoints/output_nocl/checkpoint_40.pth'
+
+image_res: 224
+test_batch_size: 512
+
+d_model: 256
+base_model: 'resnet50'
+decoder: cross
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+N: 4
+H: 4
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
+self_attention: True
+pretrained: True
+mode: feature

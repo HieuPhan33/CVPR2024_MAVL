@@ -1,0 +1,4 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+Pretrain/data_file filter=lfs diff=lfs merge=lfs -text
+checkpoints filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,21 @@
+test_file: '/data/data/covid_rural/test.csv'
+disease_book: 'observation explanation.json'
+concept_book: '../Pretrain/concept_gen/gpt3_mimic_important_chest.json'
+
+dataset: 'covid-r'
+root: '/data/data/covid_rural'
+model: 'medklip'
+model_path: '../Pretrain/data_file/MedKLIP/checkpoint_final.pth'
+
+image_res: 224
+test_batch_size: 128
+
+d_model: 256
+res_base_model: 'resnet50'
+decoder: cross
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+N: 4
+H: 4
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'

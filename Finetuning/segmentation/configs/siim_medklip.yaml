@@ -1,0 +1,23 @@
+train_file: '/data/data/siimacr/train.csv'
+valid_file: '/data/data/siimacr/val.csv'
+test_file: '/data/data/siimacr/test.csv'
+root: '/data/data/siimacr'
+dataset: 'siim'
+
+pretrain: ../../Pretrain/data_file/MedKLIP/checkpoint_final.pth
+model_path: ''
+model: 'medklip'
+
+image_res: 224
+batch_size: 64
+test_batch_size: 128
+num_classes: 1
+temp: 0.07
+mlm_probability: 0.15
+queue_size: 8192
+momentum: 0.995
+alpha: 0.4
+data_pct: 1.0
+
+optimizer: {opt: adamW, lr: 1e-5, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1e-5, epochs: 500, min_lr: 1e-5, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 50, cooldown_epochs: 0}

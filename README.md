@@ -15,7 +15,12 @@ Install gdown library:
 
 Run ```bash download.sh```
 
+## Concept generation
+
+Please find the script to generate disease' visual aspects [here](Pretrain/concept_gen/concept_init.ipynb)
+
 ## Pre-train:
+
 Our pre-train code is given in ```Pretrain```. 
 * Run download.sh to download necessary files
 * Modify the path in config file configs/MAVL_resnet.yaml, and ```python train_mavl.py``` to pre-train.

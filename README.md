@@ -17,7 +17,7 @@ Run ```bash download.sh```
 
 ## Concept generation
 
-Please find the script to generate disease' visual aspects [here](Pretrain/concept_gen/concept_init.ipynb)
+The script to generate diseases' visual aspects using LLM can be found [here](Pretrain/concept_gen/concept_init.ipynb).
 
 ## Pre-train:
 
@@ -47,3 +47,7 @@ Check this [link](Pretrain/data_file/DATA_Prepare.md) to download MAVL checkpoin
 * **Finetuning:**
     
     We give segmentation and classification finetune code on in ```Sample_Finetuning_SIIMACR```. Modify the path, and finetune our model by ```python I1_classification/train_res_ft.py --config configs/dataset_name_mavl.yaml``` or ```python I2_segementation/train_res_ft.py --config configs/dataset_name_mavl.yaml```
+
+
+## Acknowledgement
+Our code is built upon https://github.com/MediaBrain-SJTU/MedKLIP. We thank the authors for open-sourcing their code.

@@ -3,6 +3,8 @@
 ## Introduction
 Welcome to the official implementation code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework", accepted at CVPR2024 🎉!
 
+Leveraging LLM to decompose disease descriptions into a set of visual aspects, our Multi-Aspect VL pre-trained model, dubbed MAVL, achieves the state-of-the-art performance across 7 datasets for zero-shot and low-shot fine-tuning settings for disease classification and segmentation.
+
 <!-- [**Paper Web**](https://chaoyi-wu.github.io/MedKLIP/) 
 
 [**Arxiv Version**](https://arxiv.org/abs/2301.02228) -->
@@ -17,7 +19,7 @@ Then, run ```bash download.sh```
 
 The MIMIC-CXR2 needs to be downloaded from physionet.
 
-## Concept generation
+## LLM Disease's Visual Concept Generation
 
 Explore the script to generate diseases' visual aspects using LLM - GPT [here](Pretrain/concept_gen/concept_init.ipynb).
 

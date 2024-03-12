@@ -17,7 +17,7 @@ pip install -U --no-cache-dir gdown --pre
 
 Then, run ```bash download.sh```
 
-The MIMIC-CXR2 needs to be downloaded from physionet.
+The MIMIC-CXR2 needs to be downloaded from [physionet](https://physionet.org/content/mimic-cxr-jpg/2.0.0/).
 
 ## LLM Disease's Visual Concept Generation
 

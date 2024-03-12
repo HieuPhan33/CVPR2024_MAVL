@@ -3,7 +3,7 @@
 ## Introduction
 Welcome to the official implementation code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework", accepted at CVPR2024 🎉!
 
-Leveraging LLM to decompose disease descriptions into a set of visual aspects, our Multi-Aspect VL pre-trained model, dubbed MAVL, achieves the state-of-the-art performance across 7 datasets for zero-shot and low-shot fine-tuning settings for disease classification and segmentation.
+This work leverages LLM 🤖 to decompose disease descriptions into a set of visual aspects. Our visual aspect matching framework, dubbed MAVL, achieves the state-of-the-art performance across 7 datasets for zero-shot and low-shot fine-tuning settings for disease classification and segmentation.
 
 <!-- [**Paper Web**](https://chaoyi-wu.github.io/MedKLIP/) 
 

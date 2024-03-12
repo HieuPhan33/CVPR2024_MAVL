@@ -171,13 +171,11 @@ def test(config):
     #     'normal', 'pleural effusion', 'atelectasis', 'pneumonia', 'consolidation', 'fracture', 'emphysema', 'cardiomegaly', 'mass', 'nodule', 'edema',
     #     'pacemaker', 'catheter', 'pneumothorax', 'tracheal shift', 'vertebral compression', 'pulmonary fibrosis', 'mediastinal mass'
     # ]
+    padchest_seen_class = ['normal', 'pleural effusion', 'pacemaker', 'atelectasis', 'pneumonia', 'consolidation', 'cardiomegaly', 'emphysema', 
+                           'nodule', 'edema', 'pneumothorax', 'fracture', 'mass', 'catheter']
     # padchest_seen_class = [
-    #     'normal', 'pleural effusion', 'atelectasis', 'pneumonia', 'consolidation', 'fracture', 'emphysema', 'cardiomegaly', 'mass', 'nodule', 'edema',
-    #     'pacemaker', 'catheter', 'pneumothorax', 'tracheal shift', 'vertebral compression', 'pulmonary fibrosis', 'mediastinal mass'
+    #     'normal', 'atelectasis', 'cardiomegaly', 'consolidation', 'edema', 'pleural effusion', 'pneumonia', 'pneumothorax'
     # ]
-    padchest_seen_class = [
-        'normal', 'atelectasis', 'cardiomegaly', 'consolidation', 'edema', 'pleural effusion', 'pneumonia', 'pneumothorax'
-    ]
 
     padchest_rare = ['suture material', 'sternotomy', 'supra aortic elongation', 'metal', 'abnormal foreign body', 'central venous catheter via jugular vein', 'vertebral anterior compression', 'diaphragmatic eventration', #'consolidation', 
     'calcified densities', 'volume loss', 'single chamber device', 'vertebral compression', 'bullas', 'axial hyperostosis', 'aortic button enlargement', 'calcified granuloma', 'clavicle fracture', 'dual chamber device', 'mediastinic lipomatosis',

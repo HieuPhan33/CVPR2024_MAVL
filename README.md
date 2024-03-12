@@ -1,24 +1,36 @@
-# MedKLIP:Medical Knowledge Enhanced Language-Image Pre-Training
+# Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework
 
 ## Introduction: 
 
-The official implementation  code for "MedKLIP: Medical Knowledge Enhanced Language-Image Pre-Training".
+The official implementation  code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework".
 
-[**Paper Web**](https://chaoyi-wu.github.io/MedKLIP/) 
+<!-- [**Paper Web**](https://chaoyi-wu.github.io/MedKLIP/) 
 
-[**Arxiv Version**](https://arxiv.org/abs/2301.02228)
+[**Arxiv Version**](https://arxiv.org/abs/2301.02228) -->
 
 ## Download necessary files
+Install gdown library:
+```pip install -U --no-cache-dir gdown --pre```
+
 Run ```bash download.sh```
 
 ## Pre-train:
 Our pre-train code is given in ```Pretrain```. 
-* Run download.sh to download necessary files to PreTrain_MedKLIP
-* Modify the path in config file configs/MedSLIP2_ViT.yaml, and ```python train_MedSLIP.py``` to pre-train.
-* Run `accelerate launch --multi_gpu --num_processes=4 --num_machines=1 --num_cpu_threads_per_process=8 train_MedSLIP.py --root /data/2.0.0 --config configs/MedSLIP2_resnet_reg.yaml --bs 160 --num_workers 8 --output output_r50_reg_disc`
+* Run download.sh to download necessary files
+* Modify the path in config file configs/MAVL_resnet.yaml, and ```python train_mavl.py``` to pre-train.
+
+* Run `accelerate launch --multi_gpu --num_processes=4 --num_machines=1 --num_cpu_threads_per_process=8 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_resnet.yaml --bs 124 --num_workers 8`
+
+Note: The reported results in our paper are obtained by pre-training on 4 x A100 for 60 epochs. We provided the checkpoint as discussed [here](Pretrain/data_file/DATA_Prepare.md).
+
+We also conducted a more lightweight pre-training schedule with 2 x A100 for 40 epochs with mixed precision training, achieving similar zero-shot classification results. The ckpt of this setting is also provided [here](Pretrain/data_file/DATA_Prepare.md).
+
+```
+accelerate launch --multi_gpu --num_processes=2 --num_machines=1 --num_cpu_threads_per_process=8 --mixed_precision=fp16 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_short.yaml --bs 124 --num_workers 8
+```
 
 ## Quick Start:
-Check this [link](https://github.com/MediaBrain-SJTU/MedKLIP/tree/main/checkpoints) to download MedKLIP model. It can be used for all zero-shot && finetuning tasks 
+Check this [link](Pretrain/data_file/DATA_Prepare.md) to download MAVL checkpoints. It can be used for all zero-shot && finetuning tasks 
 
 * **Zero-Shot Classification:**
     

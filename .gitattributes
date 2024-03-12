@@ -2,3 +2,10 @@
 * text=auto
 Pretrain/data_file filter=lfs diff=lfs merge=lfs -text
 checkpoints filter=lfs diff=lfs merge=lfs -text
+Pretrain/data_file/MedKLIP filter=lfs diff=lfs merge=lfs -text
+Pretrain/data_file/MedKLIP/rad_graph_metric_test.json filter=lfs diff=lfs merge=lfs -text
+Pretrain/data_file/MedKLIP/rad_graph_metric_train.json filter=lfs diff=lfs merge=lfs -text
+Pretrain/data_file/MedKLIP/rad_graph_metric_validate.json filter=lfs diff=lfs merge=lfs -text
+Pretrain/data_file/MedKLIP/checkpoint_final.pth filter=lfs diff=lfs merge=lfs -text
+Pretrain/data_file/MedKLIP/landmark_observation_adj_mtx.npy filter=lfs diff=lfs merge=lfs -text
+checkpoints/checkpoint_40.pth filter=lfs diff=lfs merge=lfs -text

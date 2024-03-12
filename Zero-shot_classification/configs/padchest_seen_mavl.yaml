@@ -6,7 +6,8 @@ concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
 dataset: 'padchest'
 root: '/data/data/PadChest/'
 model: 'mavl'
-model_path: '../checkpoints/cl_global_1e-1_clean/checkpoint_40.pth'
+# model_path: '../checkpoints/cl_global_1e-1_clean/checkpoint_40.pth'
+model_path: '../checkpoints/output_short_fp16/checkpoint_40.pth'
 
 
 image_res: 224

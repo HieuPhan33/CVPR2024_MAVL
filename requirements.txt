@@ -27,7 +27,6 @@ torchsummary==1.5.1
 tornado==6.2
 tqdm==4.64.0
 pydicom
-gdown
 protobuf==3.20.*
 transformers==4.5.0
 tensorboard

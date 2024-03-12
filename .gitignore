@@ -1,7 +1,7 @@
 */models/*txt.gz
 Pretrain/output*
 Pretrain/data_file/MedKLIP
-# checkpoints
+checkpoints
 data
 Zero-shot_classification/observation explanation_padchest.json
 Zero-shot_classification/features

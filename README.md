@@ -1,9 +1,10 @@
-# Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework
+# CVPR2024 - Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework
 
 ## Introduction: 
 
-The official implementation  code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework".
+The official implementation code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework".
 
+Our paper is accepted at CVPR2024!
 <!-- [**Paper Web**](https://chaoyi-wu.github.io/MedKLIP/) 
 
 [**Arxiv Version**](https://arxiv.org/abs/2301.02228) -->
@@ -34,10 +35,10 @@ Check this [link](Pretrain/data_file/DATA_Prepare.md) to download MAVL checkpoin
 
 * **Zero-Shot Classification:**
     
-    We give examples in ```Sample_Zero-Shot_Classification```. Modify the path, and test our model by ```python test.py --config configs/dataset_name_medklip.yaml```
+    We give examples in ```Sample_Zero-Shot_Classification```. Modify the path, and test our model by ```python test.py --config configs/dataset_name_mavl.yaml```
 * **Zero-Shot Grounding:**
     
     We give examples in ```Sample_Zero-Shot_Grounding```. Modify the path, and test our model by ```python test.py```
 * **Finetuning:**
     
-    We give segmentation and classification finetune code on in ```Sample_Finetuning_SIIMACR```. Modify the path, and finetune our model by ```python I1_classification/train_res_ft.py --config configs/dataset_name_medklip.yaml``` or ```python I2_segementation/train_res_ft.py --config configs/dataset_name_medklip.yaml```
+    We give segmentation and classification finetune code on in ```Sample_Finetuning_SIIMACR```. Modify the path, and finetune our model by ```python I1_classification/train_res_ft.py --config configs/dataset_name_mavl.yaml``` or ```python I2_segementation/train_res_ft.py --config configs/dataset_name_mavl.yaml```

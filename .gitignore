@@ -2,7 +2,6 @@
 Pretrain/output*
 Pretrain/data_file/MedKLIP
 checkpoints
-data
 Zero-shot_classification/observation explanation_padchest.json
 Zero-shot_classification/features
 Finetuning/classification/data
@@ -24,5 +23,4 @@ plot.py
 Pretrain/.vscode/launch.json
 Pretrain/.vscode/launch_model.json
 Pretrain/cl_global_1e-1_clean
-*sh
 */__pycached__

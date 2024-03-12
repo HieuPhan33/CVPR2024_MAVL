@@ -3,7 +3,7 @@ valid_file: '/data/data/covidx-cxr2/val_split.csv'
 test_file: '/data/data/covidx-cxr2/test_split.csv'
 root: '/data/data/covidx-cxr2/train'
 dataset: 'covid-cxr2'
-pretrain: ../../checkpoints/cl_global_1e-1_true/checkpoint_40.pth
+pretrain: '../../checkpoints/checkpoint_full_40.pth'
 
 model: 'mavl'
 base_model: 'resnet50'

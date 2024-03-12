@@ -3,7 +3,7 @@ valid_file: '/data/data/xray14/official_valid.csv'
 test_file: '/data/data/xray14/official_test.csv'
 root: '/data/data/xray14/cxr'
 dataset: 'chexray'
-pretrain: /data/01-code/VLM/medslip/checkpoints/cl_global_1e-1_true/checkpoint_40.pth
+pretrain: '../../checkpoints/checkpoint_full_40.pth'
 
 model: mavl
 base_model: 'resnet50'

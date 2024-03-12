@@ -4,7 +4,7 @@ test_file: '/data/data/chexpertv1/CheXpert-v1.0/filter_test_labels.csv'
 root: '/data/data/chexpertv1'
 dataset: 'chexpert'
 chexpert_subset: True
-pretrain: /data/01-code/VLM/medslip/Pretrain/data_file/MedKLIP/checkpoint_final.pth
+pretrain: ../../Pretrain/data_file/MedKLIP/checkpoint_final.pth
 
 model: 'medslip'
 base_model: 'resnet50'

@@ -5,7 +5,7 @@ concept_book: '../Pretrain/concept_gen/gpt4_mimic_covid.json'
 dataset: 'covid-r'
 root: '/data/data/covid_rural'
 model: 'medslip2'
-model_path: '../checkpoints/cl_global_1e-1_true/checkpoint_40.pth'
+model_path: '../checkpoints/checkpoint_full_40.pth'
 
 image_res: 224
 test_batch_size: 128

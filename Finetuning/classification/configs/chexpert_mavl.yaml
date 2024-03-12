@@ -4,8 +4,7 @@ test_file: '/data/data/chexpertv1/CheXpert-v1.0/filter_test_labels.csv'
 root: '/data/data/chexpertv1'
 dataset: 'chexpert'
 chexpert_subset: True
-pretrain: ../../checkpoints/cl_global_1e-1_true/checkpoint_40.pth
-
+pretrain: '../checkpoints/checkpoint_full_40.pth'
 model: 'mavl'
 base_model: 'resnet50'
 image_res: 224

@@ -5,7 +5,7 @@ concept_book: '../Pretrain/concept_gen/gpt4_mimic.json'
 dataset: 'chexpert'
 root: '/data/data/chexpertv1'
 model: 'mavl'
-model_path: '../checkpoints/output_short/checkpoint_40.pth'
+model_path: '../checkpoints/checkpoint_full_40.pth'
 mode: feature
 
 image_res: 224

@@ -4,8 +4,7 @@ test_file: '/data/data/siimacr/test.csv'
 root: '/data/data/siimacr'
 dataset: 'siim'
 
-pretrain: ../../checkpoints/cl_global_1e-1_true/checkpoint_40.pth
-model_path: ''
+pretrain: '../../checkpoints/checkpoint_full_40.pth'
 model: 'mavl'
 
 image_res: 224

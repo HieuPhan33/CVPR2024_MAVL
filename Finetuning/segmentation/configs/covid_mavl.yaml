@@ -4,7 +4,7 @@ test_file: '/data/data/covid_rural/test.csv'
 
 dataset: 'covid-r'
 root: '/data/data/covid_rural'
-pretrain: ../../checkpoints/cl_global_1e-1_clean/checkpoint_40.pth
+pretrain: '../../checkpoints/checkpoint_full_40.pth'
 model: 'mavl'
 
 

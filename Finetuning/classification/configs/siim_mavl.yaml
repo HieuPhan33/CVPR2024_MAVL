@@ -3,7 +3,7 @@ valid_file: '/data/data/siimacr/val.csv'
 test_file: '/data/data/siimacr/test.csv'
 root: '/data/data/siimacr'
 dataset: 'siim'
-pretrain: ../../checkpoints/cl_global_1e-1_clean/checkpoint_40.pth
+pretrain: '../../checkpoints/checkpoint_full_40.pth'
 
 model: mavl
 base_model: 'resnet50'

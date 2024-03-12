@@ -4,7 +4,6 @@ test_file: '/data/data/covidx-cxr2/test_split.csv'
 root: '/data/data/covidx-cxr2/train'
 dataset: 'covid-cxr2'
 pretrain: /data/01-code/VLM/medslip/Pretrain/data_file/MedKLIP/checkpoint_final.pth
-model_path: /data/01-code/VLM/medslip/Finetuning/classification/covid_10_mk/checkpoint_state.pth
 
 model: 'medklip'
 base_model: 'resnet50'

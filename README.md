@@ -1,23 +1,25 @@
 # CVPR2024 - Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework
 
-## Introduction: 
+## Introduction
+Welcome to the official implementation code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework", accepted at CVPR2024!
 
-The official implementation code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework".
-
-Our paper is accepted at CVPR2024!
 <!-- [**Paper Web**](https://chaoyi-wu.github.io/MedKLIP/) 
 
 [**Arxiv Version**](https://arxiv.org/abs/2301.02228) -->
 
-## Download necessary files
-Install gdown library:
-```pip install -U --no-cache-dir gdown --pre```
+## Download Necessary Files
+To get started, install the gdown library:
+```bash
+pip install -U --no-cache-dir gdown --pre
+```
 
-Run ```bash download.sh```
+Then, run ```bash download.sh```
+
+The MIMIC-CXR2 needs to be downloaded from physionet.
 
 ## Concept generation
 
-The script to generate diseases' visual aspects using LLM can be found [here](Pretrain/concept_gen/concept_init.ipynb).
+Explore the script to generate diseases' visual aspects using LLM - GPT [here](Pretrain/concept_gen/concept_init.ipynb).
 
 ## Pre-train:
 
@@ -27,9 +29,9 @@ Our pre-train code is given in ```Pretrain```.
 
 * Run `accelerate launch --multi_gpu --num_processes=4 --num_machines=1 --num_cpu_threads_per_process=8 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_resnet.yaml --bs 124 --num_workers 8`
 
-Note: The reported results in our paper are obtained by pre-training on 4 x A100 for 60 epochs. We provided the checkpoint as discussed [here](Pretrain/data_file/DATA_Prepare.md).
+Note: The reported results in our paper are obtained by pre-training on 4 x A100 for 60 epochs. We provided the checkpoint [here](Pretrain/data_file/DATA_Prepare.md).
 
-We also conducted a more lightweight pre-training schedule with 2 x A100 for 40 epochs with mixed precision training, achieving similar zero-shot classification results. The ckpt of this setting is also provided [here](Pretrain/data_file/DATA_Prepare.md).
+We also conducted a lighter pre-training schedule with 2 x A100 for 40 epochs using mixed precision training, achieving similar zero-shot classification results. Checkpoints for this setup are also available [here](Pretrain/data_file/DATA_Prepare.md).
 
 ```
 accelerate launch --multi_gpu --num_processes=2 --num_machines=1 --num_cpu_threads_per_process=8 --mixed_precision=fp16 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_short.yaml --bs 124 --num_workers 8
@@ -51,3 +53,5 @@ Check this [link](Pretrain/data_file/DATA_Prepare.md) to download MAVL checkpoin
 
 ## Acknowledgement
 Our code is built upon https://github.com/MediaBrain-SJTU/MedKLIP. We thank the authors for open-sourcing their code.
+
+Feel free to reach out if you have any questions or need further assistance!

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the official implementation code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework", accepted at CVPR2024 🎉!
+Welcome to the official implementation code for "Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect Vision-Language Matching Framework", accepted at CVPR2024 🎉
 
 [**Arxiv Version**](https://arxiv.org/abs/2403.07636)
 

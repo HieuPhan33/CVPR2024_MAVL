@@ -5,6 +5,7 @@ Welcome to the official implementation code for "Decomposing Disease Description
 
 This work leverages LLM 🤖 to decompose disease descriptions into a set of visual aspects. Our visual aspect matching framework, dubbed MAVL, achieves the state-of-the-art performance across 7 datasets for zero-shot and low-shot fine-tuning settings for disease classification and segmentation.
 
+<img width="848" src="src/overview_distance.jpg">
 
 [**Arxiv Version**](https://arxiv.org/abs/2403.07636)
 

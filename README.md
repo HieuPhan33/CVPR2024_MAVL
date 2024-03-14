@@ -14,8 +14,8 @@ If you find our work useful, please cite our paper.
 
 ```
 @article{phan2024decomposing,
-  title={Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect  Vision-Language Matching Framework}, 
-author={Minh Hieu Phan and Yutong Xie and Yuankai Qi and Lingqiao Liu and Liyang Liu and Bowen Zhang and Zhibin Liao and Qi Wu and Minh-Son To and Johan W. Verjans},
+    title={Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect  Vision-Language Matching Framework}, 
+    author={Minh Hieu Phan and Yutong Xie and Yuankai Qi and Lingqiao Liu and Liyang Liu and Bowen Zhang and Zhibin Liao and Qi Wu and Minh-Son To and Johan W. Verjans},
     year={2024},
     journal={arXiv preprint arXiv:2403.07636},
 }

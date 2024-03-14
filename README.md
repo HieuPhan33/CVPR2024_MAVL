@@ -11,6 +11,14 @@ This work leverages LLM 🤖 to decompose disease descriptions into a set of vis
 <img width="848" src="src/overview_distance.jpg">
 
 
+```
+@article{phan2024decomposing,
+  title={Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect  Vision-Language Matching Framework}, 
+author={Minh Hieu Phan and Yutong Xie and Yuankai Qi and Lingqiao Liu and Liyang Liu and Bowen Zhang and Zhibin Liao and Qi Wu and Minh-Son To and Johan W. Verjans},
+    year={2024},
+    journal={arXiv preprint arXiv:2403.07636},
+}
+
 
 ## Download Necessary Files
 To get started, install the gdown library:
@@ -24,7 +32,7 @@ The MIMIC-CXR2 needs to be downloaded from [physionet](https://physionet.org/con
 
 ## LLM Disease's Visual Concept Generation
 
-Explore the script to generate diseases' visual aspects using LLM - GPT [here](Pretrain/concept_gen/concept_init.ipynb).
+The script to generate diseases' visual aspects using LLM - GPT can be found [here](Pretrain/concept_gen/concept_init.ipynb).
 
 ## Pre-train:
 

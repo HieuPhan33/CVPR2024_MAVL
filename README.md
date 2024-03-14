@@ -10,6 +10,7 @@ This work leverages LLM 🤖 to decompose disease descriptions into a set of vis
 
 <img width="848" src="src/overview_distance.jpg">
 
+If you find our work useful, please cite our paper.
 
 ```
 @article{phan2024decomposing,
@@ -18,7 +19,7 @@ author={Minh Hieu Phan and Yutong Xie and Yuankai Qi and Lingqiao Liu and Liyang
     year={2024},
     journal={arXiv preprint arXiv:2403.07636},
 }
-
+```
 
 ## Download Necessary Files
 To get started, install the gdown library:

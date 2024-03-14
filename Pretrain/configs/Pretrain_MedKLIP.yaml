@@ -1,7 +1,7 @@
-train_file: 'data_file/MedKLIP/rad_graph_metric_train.json'
-valid_file: 'data_file/MedKLIP/rad_graph_metric_validate.json'
-test_file: 'data_file/MedKLIP/rad_graph_metric_test.json'
-label_file: 'data_file/MedKLIP/landmark_observation_adj_mtx.npy'
+train_file: 'data_file/MAVL/rad_graph_metric_train.json'
+valid_file: 'data_file/MAVL/rad_graph_metric_validate.json'
+test_file: 'data_file/MAVL/rad_graph_metric_test.json'
+label_file: 'data_file/MAVL/landmark_observation_adj_mtx.npy'
 disease_book: 'data_file/observation explanation.json'
 
 model: 'medklip'

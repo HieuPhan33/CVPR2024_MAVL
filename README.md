@@ -198,11 +198,14 @@ You can directly create a docker container using our docker image:
 docker pull stevephan46/mavl:latest
 docker run --runtime=nvidia --name mavl -it -v /your/data/root/folder:/data --shm-size=4g stevephan46/mavl:latest
 ```
+You may need to reinstall opencv-python, as there is some conflicting problem with the docker environment  `pip install opencv-python==4.2.0.32`
 
-Otherwise, the local installation can be done by installing our `requirements.txt`:
+
+If you prefer manual installation over docker, please run the following installation:
 ```
 pip install -r requirements.txt
 pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install opencv-python==4.2.0.32
 ```
 
 ## LLM Disease's Visual Concept Generation

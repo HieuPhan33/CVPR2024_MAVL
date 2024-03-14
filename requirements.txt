@@ -42,7 +42,7 @@ mmengine
 # torch==1.13.0
 # torchvision==0.14.0
 albumentations==0.5.1
-# timm==0.9.7 --no-deps
+timm==0.9.12
 huggingface_hub==0.17.3
 pytorch-metric-learning==2.3.0
 albumentations==0.5.1

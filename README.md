@@ -20,6 +20,166 @@ If you find our work useful, please cite our paper.
     journal={arXiv preprint arXiv:2403.07636},
 }
 ```
+<h2>Comparisons with SOTA image-text pre-training models under zero-shot classification on 5 datasets.</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Dataset</th>
+    <th colspan="3"><strong>CheXpert</strong></th>
+    <th colspan="3"><strong>ChestXray-14</strong></th>
+    <th colspan="3"><strong>PadChest-seen</strong></th>
+    <th colspan="3"><strong>RSNA Pneumonia</strong></th>
+    <th colspan="3"><strong>SIIM-ACR</strong></th>
+</tr>
+<th> Method </th>
+<th style="width: 250px;">AUC </th>
+<th style="width: 250px;">F1 </th>
+<th style="width: 250px;">ACC </th>
+<th style="width: 250px;">AUC </th>
+<th style="width: 250px;">F1 </th>
+<th style="width: 250px;">ACC </th>
+<th style="width: 250px;">AUC </th>
+<th style="width: 250px;">F1 </th>
+<th style="width: 250px;">ACC </th>
+<th style="width: 250px;">AUC </th>
+<th style="width: 250px;">F1 </th>
+<th style="width: 250px;">ACC </th>
+<th style="width: 250px;">AUC </th>
+<th style="width: 250px;">F1 </th>
+<th style="width: 250px;">ACC </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConVIRT</td>
+<td>52.10</td>
+<td>35.61</td>
+<td>57.43</td>
+<td>53.15</td>
+<td>12.38</td>
+<td>57.88</td>
+<td>63.72</td>
+<td>14.56</td>
+<td>73.47</td>
+<td>79.21</td>
+<td>55.67</td>
+<td>75.08</td>
+<td>64.25</td>
+<td>42.87</td>
+<td>53.42</td>
+</tr>
+<tr>
+<td>GLoRIA</td>
+<td>54.84</td>
+<td>37.86</td>
+<td>60.70</td>
+<td>55.92</td>
+<td>14.20</td>
+<td>59.47</td>
+<td>64.09</td>
+<td>14.83</td>
+<td>73.86</td>
+<td>70.37</td>
+<td>48.19</td>
+<td>70.54</td>
+<td>54.71</td>
+<td>40.39</td>
+<td>47.15</td>
+</tr>
+<tr>
+<td>BioViL</td>
+<td>60.01</td>
+<td>42.10</td>
+<td>66.13</td>
+<td>57.82</td>
+<td>15.64</td>
+<td>61.33</td>
+<td>60.35</td>
+<td>10.63</td>
+<td>70.48</td>
+<td>84.12</td>
+<td>54.59</td>
+<td>74.43</td>
+<td>70.28</td>
+<td>46.45</td>
+<td>68.22</td>
+</tr>
+<tr>
+<td>BioViL-T</td>
+<td>70.93</td>
+<td>47.21</td>
+<td>69.96</td>
+<td>60.43</td>
+<td>17.29</td>
+<td>62.12</td>
+<td>65.78</td>
+<td>15.37</td>
+<td>77.52</td>
+<td>86.03</td>
+<td>62.56</td>
+<td>80.04</td>
+<td>75.56</td>
+<td>60.18</td>
+<td>73.72</td>
+</tr>
+<tr>
+<td>CheXzero</td>
+<td>87.90</td>
+<td>61.90</td>
+<td>81.17</td>
+<td>66.99</td>
+<td>21.99</td>
+<td>65.38</td>
+<td>73.24</td>
+<td>19.53</td>
+<td>83.49</td>
+<td>85.13</td>
+<td>61.49</td>
+<td>78.34</td>
+<td>84.60</td>
+<td>65.97</td>
+<td>77.34</td>
+</tr>
+<tr>
+<td>MedKLIP</td>
+<td>87.97</td>
+<td>63.67</td>
+<td>84.32</td>
+<td>72.33</td>
+<td>24.18</td>
+<td>79.40</td>
+<td>77.87</td>
+<td>26.63</td>
+<td>92.44</td>
+<td>85.94</td>
+<td>62.57</td>
+<td>79.97</td>
+<td>89.79</td>
+<td>72.73</td>
+<td>83.99</td>
+</tr>
+<tr>
+<td><strong>MAVL (Proposed)</strong></td>
+<td><strong>90.13</strong></td>
+<td><strong>65.47</strong></td>
+<td><strong>86.44</strong></td>
+<td><strong>73.57</strong></td>
+<td><strong>26.25</strong></td>
+<td><strong>82.77</strong></td>
+<td><strong>78.79</strong></td>
+<td><strong>28.48</strong></td>
+<td><strong>92.56</strong></td>
+<td><strong>86.31</strong></td>
+<td><strong>65.26</strong></td>
+<td><strong>81.28</strong></td>
+<td><strong>92.04</strong></td>
+<td><strong>77.95</strong></td>
+<td><strong>87.14</strong></td>
+</tr>
+</tbody>
+</table>
+
 
 ## Download Necessary Files
 To get started, install the gdown library:
@@ -30,6 +190,20 @@ pip install -U --no-cache-dir gdown --pre
 Then, run ```bash download.sh```
 
 The MIMIC-CXR2 needs to be downloaded from [physionet](https://physionet.org/content/mimic-cxr-jpg/2.0.0/).
+
+## Library Installation
+We have pushed the docker image with necessary environments.
+You can directly create a docker container using our docker image:
+```
+docker pull stevephan46/mavl:latest
+docker run --runtime=nvidia --name mavl -it -v /your/data/root/folder:/data --shm-size=4g stevephan46/mavl:latest
+```
+
+Otherwise, the local installation can be done by installing our `requirements.txt`:
+```
+pip install -r requirements.txt
+pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu113
+```
 
 ## LLM Disease's Visual Concept Generation
 

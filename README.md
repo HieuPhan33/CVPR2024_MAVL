@@ -237,7 +237,7 @@ Links to download downstream datasets are:
 * [PadChest](https://bimcv.cipf.es/bimcv-projects/padchest/).
 * [RSNA](https://www.rsna.org/rsnai/ai-image-challenge/rsna-pneumonia-detection-challenge-2018) - Download images from initial annotations.
 * [SIIM](https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation/data?select=download_images.py).
-* COVIDx-CXR-2 - The [official link](https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md) on Kaggle is down. The publicly available expanded version, called COVIDx-CXR4 is released [here](https://www.kaggle.com/datasets/andyczhao/covidx-cxr2). They encompass COVIDx-CXR-2 as subset. Please use our dataset csv splits to reproduce the results on COVIDx-CXR-2 version.
+* COVIDx-CXR-2 - The [official link](https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md) on Kaggle is down. The publicly available expanded version, called COVIDx-CXR4 is released [here](https://www.kaggle.com/datasets/andyczhao/covidx-cxr2). They encompass COVIDx-CXR-2 as subset. Please use our dataset csv splits to reproduce the results on COVIDx-CXR-2 subset version.
 * Covid Rural - The [official link](https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=70226443) includes raw DICOM datasets. We use preprocessed data provided [here](https://github.com/haimingt/opacity_segmentation_covid_chest_X_ray/tree/master/covid_rural_annot).
 
 ## Quick Start:

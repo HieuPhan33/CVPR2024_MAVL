@@ -231,6 +231,7 @@ accelerate launch --multi_gpu --num_processes=2 --num_machines=1 --num_cpu_threa
 ``` -->
 
 ## Downstream datasets:
+Links to download downstream datasets are:
 * [CheXpert](https://stanfordaimi.azurewebsites.net/datasets/8cbd9ed4-2eb9-4565-affc-111cf4f7ebe2).
 * [ChestXray-14](https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345).
 * [PadChest](https://bimcv.cipf.es/bimcv-projects/padchest/).

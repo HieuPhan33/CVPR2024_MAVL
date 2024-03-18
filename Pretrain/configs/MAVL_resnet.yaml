@@ -1,0 +1,39 @@
+train_file: 'data_file/MAVL/rad_graph_metric_train.json'
+valid_file: 'data_file/MAVL/rad_graph_metric_validate.json'
+test_file: 'data_file/MAVL/rad_graph_metric_test.json'
+label_file: 'data_file/MAVL/landmark_observation_adj_mtx.npy'
+disease_book: 'data_file/observation explanation.json'
+concept_book: 'concept_gen/gpt4_mimic.json'
+
+model: 'mavl'
+image_res: 224
+patch_size: 16
+num_sentences: 12
+num_tokens: 32
+vision_width: 768
+fea_width: 197
+embed_dim: 256
+batch_size: 128
+test_batch_size: 128
+temp: 0.07
+mlm_probability: 0.15
+queue_size: 8192
+momentum: 0.995
+alpha: 0.4
+d_model: 256
+base_model: 'resnet50'
+pretrained: True
+decoder: cross
+num_queries: 75
+dropout: 0.1
+attribute_set_size: 2
+cl_global: 0.1
+N: 4
+H: 4
+no_cl: False
+self_attention: True
+exclude_class: False
+text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
+shuffle_ratio: 0.5
+optimizer: {opt: adamW, lr: 1.0e-4, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1.0e-4, epochs: 60, min_lr: 1.0e-5, decay_rate: 1, warmup_lr: 1.0e-5, warmup_epochs: 5, cooldown_epochs: 0}

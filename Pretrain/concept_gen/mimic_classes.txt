@@ -1,0 +1,75 @@
+normal
+clear
+sharp anatomical structures
+sharply seen
+unremarkable
+intact
+stable
+free air
+pleural effusion
+opacity
+pneumothorax
+pulmonary edema
+atelectasis
+tube
+consolidation
+process
+abnormality
+enlarge
+tip
+low lung volumes
+pneumonia
+line
+congestion
+catheter
+cardiomegaly
+fracture
+air
+tortuous
+lead
+disease
+calcification
+prominence
+device
+engorgement
+peripherally inserted central catheter
+clip
+elevation
+expand
+nodule
+wire
+fluid
+degenerative
+pacemaker
+thicken
+marking
+scar
+hyperinflate
+blunt
+loss
+widen
+collapse
+density
+emphysema
+aerate
+lung cancer
+crowding of the bronchovascular structures
+infiltrate
+obscure
+deformity
+hernia
+drainage
+distention
+shift
+stent
+pressure
+lesion
+finding
+borderline size of the cardiac silhouette
+medical hardware
+dilation
+congestive heart failure
+redistribution
+aspiration
+rare diseases
+Covid-19

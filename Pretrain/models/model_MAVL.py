@@ -189,11 +189,11 @@ class MAVL(nn.Module):
     def _get_basemodel(self, model_name, pretrained=False, layers=['blocks.9']):
         # try:
         ''' visual backbone'''
-        net_dict = {"resnet18": models.resnet18(pretrained=pretrained),
-                        "resnet50": models.resnet50(pretrained=pretrained),
-                        "ViT-B/16": models.vit_b_16(torchvision.models.ViT_B_16_Weights.IMAGENET1K_SWAG_LINEAR_V1),
-                        "ViT-L/16": models.vit_l_16(torchvision.models.ViT_L_16_Weights.IMAGENET1K_SWAG_LINEAR_V1)}
         if "resnet" in model_name:
+            net_dict = {
+                "resnet18": models.resnet18(pretrained=pretrained),
+                "resnet50": models.resnet50(pretrained=pretrained),
+            }
             model = net_dict[model_name]
             num_ftrs = int(model.fc.in_features/2)
             backbone = nn.Sequential(*list(model.children())[:-3])
@@ -203,6 +203,10 @@ class MAVL(nn.Module):
             backbone = create_feature_extractor(model, return_nodes={layers[0]: 'layer'})
             num_ftrs = backbone.patch_embed.proj.out_channels
         elif "ViT" in model_name:
+            net_dict = {
+                "ViT-B/16": models.vit_b_16(torchvision.models.ViT_B_16_Weights.IMAGENET1K_SWAG_LINEAR_V1),
+                "ViT-L/16": models.vit_l_16(torchvision.models.ViT_L_16_Weights.IMAGENET1K_SWAG_LINEAR_V1)
+            }
             model = net_dict[model_name]
             backbone = create_feature_extractor(model, return_nodes={'encoder.ln': 'layer'}) 
             num_ftrs = model.hidden_dim
@@ -272,7 +276,7 @@ class MAVL(nn.Module):
             b, d, h, w = x.shape
             x = x.permute((0, 2, 3, 1))
             x = x.contiguous().view(b, h*w, -1).permute(1, 0, 2)
-            query_embed = query_embed_.unsqueeze(1).repeat(1, B, 1) # 75 x B x dim
+            query_embed = query_embed_.unsqueeze(1).repeat(1, B, 1) # 75*9 x B x dim
             
         features, att = self.decoder(query_embed, x)
         # feature shape is B x (n_disease*n_concepts) x dim
@@ -326,33 +330,15 @@ class MAVL(nn.Module):
             x = x[:,self.keep_class_dim,:]
 
 
-        ### Global contrastive loss  
-        ### Ablation study CL and CE on the same feature space
-        if self.same_feature:
-            out_features = out.view(B, len(self.disease_name)*self.n_concepts, -1) # B, N, H
-            # query_embed_ N, H
-            # logits = torch.bmm(F.normalize(x_global.unsqueeze(1), dim=-1), 
-            #                    F.normalize(query_embed_.permute(0, 2, 1), dim=-1)).squeeze(1)
-            logits = torch.matmul(F.normalize(out_features, dim=-1), F.normalize(query_embed_, dim=-1).T) # B x N_disease*n_concepts
-        else:
-            logits = torch.matmul(F.normalize(x_global, dim=-1), F.normalize(query_embed_, dim=-1).T) # B x N_disease*n_concepts
+        logits = torch.matmul(F.normalize(x_global, dim=-1), F.normalize(query_embed_, dim=-1).T) # B x N_disease*n_concepts
 
         ## None mask version
         contrast_labels = labels.clone()
         contrast_labels[(contrast_labels == -1) | (contrast_labels == 2)] = 0
-        if self.same_feature:
-            orders = torch.arange(contrast_labels.shape[1]).unsqueeze(0).repeat(contrast_labels.shape[0], 1).to(contrast_labels.device)
-            mask = orders.unsqueeze(-1) == orders.unsqueeze(1)
-            new_labels =  mask*torch.bmm(contrast_labels.unsqueeze(-1), contrast_labels.unsqueeze(1))
-            loss_global_i2t = torch.stack([
-                self.sce(logits[:, k::self.n_concepts, k::self.n_concepts] * self.temp[i].exp(), new_labels) for i, k in enumerate(self.global_concept_idx)]).mean()
-            loss_global_t2i = torch.stack([
-                self.sce(logits[:, k::self.n_concepts, k::self.n_concepts].T * self.temp[i].exp(), new_labels.T) for i, k in enumerate(self.global_concept_idx)]).mean()
-        else:
-            loss_global_i2t = torch.stack([
-                self.sce(logits[:, k::self.n_concepts] * self.temp[i].exp(), contrast_labels) for i, k in enumerate(self.global_concept_idx)]).mean()
-            loss_global_t2i = torch.stack([
-                self.sce(logits[:, k::self.n_concepts].T * self.temp[i].exp(), contrast_labels.T) for i, k in enumerate(self.global_concept_idx)]).mean()
+        loss_global_i2t = torch.stack([
+            self.sce(logits[:, k::self.n_concepts] * self.temp[i].exp(), contrast_labels) for i, k in enumerate(self.global_concept_idx)]).mean()
+        loss_global_t2i = torch.stack([
+            self.sce(logits[:, k::self.n_concepts].T * self.temp[i].exp(), contrast_labels.T) for i, k in enumerate(self.global_concept_idx)]).mean()
 
 
         loss_global = self.cl_global * (loss_global_i2t + loss_global_t2i)
@@ -409,7 +395,7 @@ if __name__ == '__main__':
     def get_tokenizer(tokenizer,target_text):
         target_tokenizer = tokenizer(list(target_text), padding='max_length', truncation=True, max_length=128,return_tensors="pt")
         return target_tokenizer
-    config = yaml.load(open('configs/Pretrain_MedSLIP.yaml', 'r'), Loader=yaml.Loader)
+    config = yaml.load(open('configs/MAVL_short.yaml', 'r'), Loader=yaml.Loader)
     print("Creating book")
     json_book = json.load(open(config['disease_book'],'r'))
     disease_book = [json_book[i] for i in json_book]
@@ -431,7 +417,7 @@ if __name__ == '__main__':
     disease_book_tokenizer = get_tokenizer(tokenizer,disease_book)
     concepts_book_tokenizer = get_tokenizer(tokenizer, concepts_book)
 
-    model = MedSLIP(config,ana_book_tokenizer, disease_book_tokenizer, concepts_book_tokenizer, mode = 'train')
+    model = MAVL(config,ana_book_tokenizer, disease_book_tokenizer, concepts_book_tokenizer, mode = 'train')
     images = torch.rand(2, 3, 224, 224)
     labels = torch.randint(0, 2, (2, 75))
     indices = torch.randint(0, 20, (2, 75, 8))

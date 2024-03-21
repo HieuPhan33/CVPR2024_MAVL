@@ -16,7 +16,6 @@ import torchvision.models as models
 import torchvision
 from einops import rearrange
 from transformers import AutoModel
-from . import clip
 import timm
 # from timm.loss import SoftTargetCrossEntropy
 
@@ -101,16 +100,11 @@ class MAVL(nn.Module):
         ## Index of important diseases
         self.model_name = config["base_model"]
         print("Image feature extractor:", config["base_model"])
-        if 'CLIP' in config['base_model']:
-            model_name = config['base_model'].replace('CLIP-', '')
-            model, _ = clip.load(model_name, device=device, jit=False)
-            self.backbone = model.visual
-            num_ftrs = int(self.backbone.output_dim)
-        else:
-            self.backbone, num_ftrs = self._get_basemodel(config['base_model'], pretrained=config['pretrained'], 
-                                                          layers=config.get('layers', None))
-            if 'resnet' in config['base_model']:
-                self.pool = AttentionPool2d(224//16, embed_dim=num_ftrs, num_heads=8, output_dim=self.d_model)
+
+        self.backbone, num_ftrs = self._get_basemodel(config['base_model'], pretrained=config['pretrained'], 
+                                                        layers=config.get('layers', None))
+        if 'resnet' in config['base_model']:
+            self.pool = AttentionPool2d(224//16, embed_dim=num_ftrs, num_heads=8, output_dim=self.d_model)
         if ('vit' in self.model_name.lower() or 'timm' in self.model_name.lower()) and self.d_model != 768:
             self.global_l = nn.Linear(768, out_features=self.d_model)
         else:
@@ -132,9 +126,7 @@ class MAVL(nn.Module):
         ''' Query Decoder'''
         ###################################
         self.decoder_name = config['decoder']
-        if config['decoder'] == 'slot': 
-            self.decoder = SlotAttention(dim=256, n_concepts=self.n_concepts, iters=config['N'], hidden_dim=1024)
-        elif config['decoder'] == 'cross':
+        if config['decoder'] == 'cross':
             self.H = config['H'] 
             decoder_layer = TransformerDecoderLayer(self.d_model, config['H'] , 1024,
                                             0.1, 'relu',normalize_before=True, self_attention=config['self_attention'])

@@ -148,9 +148,7 @@ class MAVL(nn.Module):
         ''' Query Decoder'''
         ###################################
         self.decoder_name = config['decoder']
-        if config['decoder'] == 'slot': 
-            self.decoder = SlotAttention(dim=256, n_concepts=self.n_concepts, iters=config['N'], hidden_dim=1024)
-        elif config['decoder'] == 'cross':
+        if config['decoder'] == 'cross':
             self.H = config['H'] 
             decoder_layer = TransformerDecoderLayer(self.d_model, config['H'] , 1024,
                                             0.1, 'relu',normalize_before=True, self_attention=config['self_attention'])

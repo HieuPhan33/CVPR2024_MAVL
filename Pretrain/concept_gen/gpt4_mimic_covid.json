@@ -750,13 +750,13 @@
         "texture: smooth, grainy, mottled, or contains specific features."
     ],
     "covid19": [
-        "border: fuzzy or blurry, blending into the surrounding lung tissue.",
-        "fluid: no fluid or effusion accumulation typically associated.",
-        "location: often affects both lungs, typically in the peripheral and lower parts of the lungs.",
-        "opacity: more opaque, less transparent, appearing as hazy areas that cloud the lungs.",
-        "other: asymmetric appearance between two chest's sides, and a progression of the cloudiness over time.",
-        "patterns: \"ground-glass\" opacity, which looks like a hazy, foggy area, often with a rounded or patchy distribution.",
-        "shape: usually round or irregular areas of cloudiness, not in a clear, defined shape.",
-        "texture: grainy or patchy texture, similar to a snowy TV screen."
+        "border:  may have irregular or jagged borders.",
+        "fluid: no fluid accumulation or effusion.",
+        "location: scattered areas throughout both lungs, often with lower lobe involvement.",
+        "opacity: ground-glass opacities, which are hazy or less opaque.",
+        "other: Asymmetry between the two lungs is often observed.",
+        "patterns: patchy infiltrates and hazy areas with a \"glass-like\" appearance. \"Crazy-paving\" pattern, which resembles irregularly placed paving stones",
+        "shape: irregular and patchy areas.",
+        "texture: fluffy, grainy and more granular ."
     ]
 }

@@ -749,16 +749,6 @@
         "shape: irregular, round, oval, or have unique shapes based on the context.",
         "texture: smooth, grainy, mottled, or contains specific features."
     ],
-    "covid19": [
-        "border: fuzzy or unclear, blending into the surrounding lung tissue.",
-        "fluid: no specific fluid accumulation or effusion.",
-        "location: typically affects both lungs and often located at the lung's edges or periphery.",
-        "opacity: bilateral and peripheral ground-glass opacities, appearing as hazy, gray areas in the lungs.",
-        "other: \"Crazy-paving\" pattern, which resembles irregularly placed paving stones. It's seen as a combination of ground-glass opacity and interlobular septal thickening. Asymmetry between the two lungs is often observed.",
-        "patterns: multifocal patchy consolidation, appearing as several cloudy areas that are not evenly spread.",
-        "shape: irregular, round, patchy areas in the lung.",
-        "texture: fluffy, grainy or frosted glass appearance within the lung area."
-    ],
     "hypoexpansion basal": [
         "border: clear border of the lung, but the diaphragm on the affected side may appear higher.",
         "fluid: no fluid or effusion accumulation.",

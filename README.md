@@ -214,9 +214,9 @@ The script to generate diseases' visual aspects using LLM - GPT can be found [he
 
 ## Pre-train:
 
-Pre-train code will be released soon. Stay tuned.
+<!-- Pre-train code will be released soon. Stay tuned. -->
 
-<!-- Our pre-train code is given in ```Pretrain```. 
+Our pre-train code is given in ```Pretrain```. 
 * Run download.sh to download necessary files
 * Modify the path in config file configs/MAVL_resnet.yaml, and ```python train_mavl.py``` to pre-train.
 
@@ -228,7 +228,7 @@ We also conducted a lighter pre-training schedule with 2 x A100 for 40 epochs us
 
 ```
 accelerate launch --multi_gpu --num_processes=2 --num_machines=1 --num_cpu_threads_per_process=8 --mixed_precision=fp16 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_short.yaml --bs 124 --num_workers 8
-``` -->
+```
 
 ## Downstream datasets:
 Links to download downstream datasets are:

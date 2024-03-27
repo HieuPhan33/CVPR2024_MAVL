@@ -1,7 +1,6 @@
-# test_file: '/data/VLM/data/covid_rural/test.csv'
-test_file: '/data/data/covid_rural/train.csv'
+test_file: '/data/data/covid_rural/test.csv'
 disease_book: 'observation explanation.json'
-concept_book: '../Pretrain/concept_gen/gpt4_mimic_covid.json'
+concept_book: '../Pretrain/concept_gen/gpt4_mimic_prev.json'
 
 dataset: 'covid-r'
 root: '/data/data/covid_rural'

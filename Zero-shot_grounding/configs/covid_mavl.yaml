@@ -1,6 +1,6 @@
 test_file: '/data/data/covid_rural/test.csv'
 disease_book: 'observation explanation.json'
-concept_book: '../Pretrain/concept_gen/gpt4_mimic_prev.json'
+concept_book: '../Pretrain/concept_gen/gpt4_mimic_covidr.json'
 
 dataset: 'covid-r'
 root: '/data/data/covid_rural'

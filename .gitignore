@@ -26,3 +26,4 @@ Pretrain/.vscode/launch_model.json
 Pretrain/cl_global_1e-1_clean
 # Pretrain
 */__pycached__
+Zero-shot_classification/*csv

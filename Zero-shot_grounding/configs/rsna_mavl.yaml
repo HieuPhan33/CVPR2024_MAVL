@@ -7,7 +7,9 @@ dataset: rsna
 root: /data/data/rsna/
 target: pneumonia
 model: mavl
-model_path: '../checkpoints/checkpoint_full_40.pth'
+# model_path: '../checkpoints/checkpoint_full_40.pth'
+model_path: '../../medslip/checkpoints/cl_global_1e-1_true/checkpoint_40.pth'
+
 
 image_res: 224
 test_batch_size: 512

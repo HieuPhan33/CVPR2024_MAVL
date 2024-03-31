@@ -26,5 +26,5 @@ Pretrain/.vscode/launch_model.json
 Pretrain/cl_global_1e-1_clean
 # Pretrain
 */__pycached__
-Zero-shot_classification/results
-Zero-shot_classification/*csv
+# Zero-shot_classification/results
+# Zero-shot_classification/

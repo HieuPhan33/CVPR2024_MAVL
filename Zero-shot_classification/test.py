@@ -58,6 +58,16 @@ def binary_entropy(predictions):
     return entropy
 
 
+def log_to_csv(filename, data, firstrow=None):
+    file_exists = os.path.isfile(filename)
+    with open(filename, 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        if not file_exists:
+            # Write header if file doesn't exist
+            writer.writerow(firstrow)  # Example header
+        writer.writerow(data)
+        
+        
 def save_images_with_annotations(batch, predictions, classes, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     to_pil = transforms.ToPILImage()
@@ -171,11 +181,27 @@ def test(config):
     #     'normal', 'pleural effusion', 'atelectasis', 'pneumonia', 'consolidation', 'fracture', 'emphysema', 'cardiomegaly', 'mass', 'nodule', 'edema',
     #     'pacemaker', 'catheter', 'pneumothorax', 'tracheal shift', 'vertebral compression', 'pulmonary fibrosis', 'mediastinal mass'
     # ]
-    padchest_seen_class = ['normal', 'pleural effusion', 'pacemaker', 'atelectasis', 'pneumonia', 'consolidation', 'cardiomegaly', 'emphysema', 
-                           'nodule', 'edema', 'pneumothorax', 'fracture', 'mass', 'catheter']
+    # padchest_seen_class = [
+    #     'normal', 'pleural effusion', 'atelectasis', 'pneumonia', 'consolidation', 'fracture', 'emphysema', 'cardiomegaly', 'mass', 'nodule', 'edema',
+    #     'pacemaker', 'catheter', 'pneumothorax', 'tracheal shift', 'vertebral compression', 'pulmonary fibrosis', 'mediastinal mass'
+    # ]
     # padchest_seen_class = [
     #     'normal', 'atelectasis', 'cardiomegaly', 'consolidation', 'edema', 'pleural effusion', 'pneumonia', 'pneumothorax'
     # ]
+    padchest_seen_class = ['normal', 'pleural effusion', 'pacemaker', 'atelectasis', 'pneumonia', 'consolidation', 'cardiomegaly', 'emphysema', 
+                           'nodule', 'edema', 'pneumothorax', 'fracture', 'mass', 'catheter']
+    # padchest_seen_class =  ['cardiomegaly',
+    #            'edema',
+    #            'consolidation',
+    #            'pneumonia',
+    #            'atelectasis',
+    #            'pneumothorax',
+    #            'pleural effusion',
+    #            'fracture',
+    #            'normal',
+    #            'callus rib fracture', 'vertebral fracture','clavicle fracture', 'humeral fracture', 'rib fracture',
+    #            'dual chamber device', 'electrical device', 'single chamber device',
+    #            'sclerotic bone lesion', 'blastic bone lesion','lytic bone lesion']
 
     padchest_rare = ['suture material', 'sternotomy', 'supra aortic elongation', 'metal', 'abnormal foreign body', 'central venous catheter via jugular vein', 'vertebral anterior compression', 'diaphragmatic eventration', #'consolidation', 
     'calcified densities', 'volume loss', 'single chamber device', 'vertebral compression', 'bullas', 'axial hyperostosis', 'aortic button enlargement', 'calcified granuloma', 'clavicle fracture', 'dual chamber device', 'mediastinic lipomatosis',
@@ -227,12 +253,12 @@ def test(config):
             dataset_cls = padchest_unseen_class
         elif config['class'] == 'rare':
             dataset_cls = padchest_rare
-            original_class.extend(item for item in padchest_rare if item not in original_class)
         else:
             dataset_cls = padchest_seen_class
         test_dataset = Padchest_Dataset(config['test_file'], root=config['root'], classes=dataset_cls)
         if 'pleural effusion' in dataset_cls:
             dataset_cls[dataset_cls.index('pleural effusion')] = 'effusion'
+        original_class.extend(item for item in dataset_cls if item not in original_class)
     # original_class = dataset_cls
     mapping = []
     for disease in dataset_cls:
@@ -427,8 +453,19 @@ def test(config):
         # Write the data rows
         csv_writer.writerows(table_data)
 
-    # Print the table
     print(table)
+    log_csv = True
+    if log_csv:
+        model_name = '_'.join(config['model_path'].split('/')[-2:])
+        csv_filename = f'results/{model_name}.csv'
+        os.makedirs('results', exist_ok=True)
+        dataset_name = f"{config['dataset']}_{config['mode']}"
+        if config['dataset'] == 'padchest':
+            dataset_name = f"{dataset_name}_{config['class']}"
+        data = [dataset_name, acc_avg, f1_avg, AUROC_avg, precision_avg, recall_avg]
+        header = ['Dataset',  "Accuracy", "Max F1", "AUC ROC", "Precision", "Recall"]
+        log_to_csv(csv_filename, data, header)
+        
     # print('The average f1 is {F1_avg:.4f}'.format(F1_avg=f1_avg))
     # print('The average ACC is {ACC_avg:.4f}'.format(ACC_avg=acc_avg))
     # for i in range(len(target_class)):
@@ -441,10 +478,13 @@ if __name__ == '__main__':
     parser.add_argument('--config', default='configs/MedKLIP_config.yaml')
     parser.add_argument('--device', default='cuda')
     parser.add_argument('--gpu', type=str,default='0', help='gpu')
+    parser.add_argument('--model_path', type=str, default='', help='model path')
     args = parser.parse_args()
 
     config = yaml.load(open(args.config, 'r'), Loader=yaml.Loader)
     accelerator = Accelerator()
+    if args.model_path:
+        config['model_path'] = args.model_path
     
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     if args.gpu != '-1':
@@ -452,4 +492,3 @@ if __name__ == '__main__':
         torch.cuda._initialized = True
 
     test(config)
-

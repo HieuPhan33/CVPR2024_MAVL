@@ -1,9 +1,9 @@
-test_file: '/data/data/xray14/test.csv'
+test_file: '/data/VLM/data/xray14/test.csv'
 disease_book: 'observation explanation.json'
 concept_book: '../Pretrain/concept_gen/gpt4_mimic.json'
 
 dataset: 'chexray'
-root: '/data/data/xray14/cxr'
+root: '/data/VLM/data/xray14/cxr'
 model: mavl
 model_path: '../checkpoints/checkpoint_full_40.pth'
 
@@ -21,4 +21,4 @@ H: 4
 self_attention: True
 text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
 pretrained: True
-mode: feature
+mode: text

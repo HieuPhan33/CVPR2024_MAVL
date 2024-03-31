@@ -5,7 +5,7 @@ concept_book: '../Pretrain/concept_gen/gpt4_mimic.json'
 dataset: 'rsna'
 root: '/data/VLM/data/rsna'
 model: mavl
-model_path: '../checkpoints/checkpoint_full_46.pth'
+model_path: '../checkpoints/checkpoint_full_40.pth'
 
 
 image_res: 224

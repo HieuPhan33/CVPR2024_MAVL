@@ -146,6 +146,16 @@ def get_tokenizer(tokenizer,target_text):
     
     return target_tokenizer
 
+def log_to_csv(filename, data, firstrow=None):
+    file_exists = os.path.isfile(filename)
+    with open(filename, 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        if not file_exists:
+            # Write header if file doesn't exist
+            writer.writerow(firstrow)  # Example header
+        writer.writerow(data)
+        
+        
 def test(config):
     device = accelerator.device
     print("Total CUDA devices: ", torch.cuda.device_count())
@@ -452,7 +462,10 @@ def test(config):
         
         # Write the data rows
         csv_writer.writerows(table_data)
+<<<<<<< HEAD
 
+=======
+>>>>>>> c7e9f45 (update result logs)
     print(table)
     log_csv = True
     if log_csv:
@@ -466,12 +479,17 @@ def test(config):
         header = ['Dataset',  "Accuracy", "Max F1", "AUC ROC", "Precision", "Recall"]
         log_to_csv(csv_filename, data, header)
         
+<<<<<<< HEAD
     # print('The average f1 is {F1_avg:.4f}'.format(F1_avg=f1_avg))
     # print('The average ACC is {ACC_avg:.4f}'.format(ACC_avg=acc_avg))
     # for i in range(len(target_class)):
     #     print('F1 of {} is {}'.format(target_class[i], max_f1s[i]))
     #     print('ACC of {} is {}'.format(target_class[i], accs[i]))
     
+=======
+    # Print the table
+
+>>>>>>> c7e9f45 (update result logs)
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -485,7 +503,11 @@ if __name__ == '__main__':
     accelerator = Accelerator()
     if args.model_path:
         config['model_path'] = args.model_path
+<<<<<<< HEAD
     
+=======
+        
+>>>>>>> c7e9f45 (update result logs)
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     if args.gpu != '-1':
         torch.cuda.current_device()

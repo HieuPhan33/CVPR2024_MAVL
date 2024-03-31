@@ -1,10 +1,10 @@
-test_file: '/data/data/PadChest/test.csv'
+test_file: '/data/VLM/data/PadChest/test.csv'
 disease_book: 'observation explanation_padchest_rare.json'
 # concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
 concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
 
 dataset: 'padchest'
-root: '/data/data/PadChest/'
+root: '/data/VLM/data/PadChest/'
 model: 'mavl'
 model_path: '../checkpoints/checkpoint_full_40.pth'
 
@@ -22,5 +22,5 @@ H: 4
 text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
 self_attention: True
 pretrained: True
-mode: text
+mode: feature
 class: rare

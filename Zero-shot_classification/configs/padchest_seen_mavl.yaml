@@ -1,17 +1,15 @@
 test_file: '/data/VLM/data/PadChest/test.csv'
 disease_book: 'observation explanation_padchest_rare.json'
-# concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
 concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
 
 dataset: 'padchest'
 root: '/data/VLM/data/PadChest/'
 model: 'mavl'
-# model_path: '../checkpoints/checkpoint_short_37.pth'
-model_path: '../../medslip/checkpoints/cl_global_1e-1_true/checkpoint_40.pth'
+model_path: '../checkpoints/checkpoint_37.pth'
 
 
 image_res: 224
-test_batch_size: 512
+test_batch_size: 1024
 
 d_model: 256
 base_model: 'resnet50'

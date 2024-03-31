@@ -211,11 +211,11 @@ pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==0.12.0 --e
 pip install opencv-python==4.2.0.32
 ```
 
-## LLM Disease's Visual Concept Generation
+## 🤖 LLM Disease's Visual Concept Generation
 
 The script to generate diseases' visual aspects using LLM - GPT can be found [here](Pretrain/concept_gen/concept_init.ipynb).
 
-## Pre-train:
+## 🔥 Pre-train:
 
 <!-- Pre-train code will be released soon. Stay tuned. -->
 
@@ -243,7 +243,7 @@ Links to download downstream datasets are:
 * COVIDx-CXR-2 - The [official link](https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md) on Kaggle is down. The publicly available expanded version, called COVIDx-CXR4 is released [here](https://www.kaggle.com/datasets/andyczhao/covidx-cxr2). They encompass COVIDx-CXR-2 as subset. Please use our dataset csv splits to reproduce the results on COVIDx-CXR-2 subset version.
 * Covid Rural - The [official link](https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=70226443) includes raw DICOM datasets. We use preprocessed data provided [here](https://github.com/haimingt/opacity_segmentation_covid_chest_X_ray/tree/master/covid_rural_annot).
 
-## 🚀 Quick Start:
+## 🌟 Quick Start:
 Check this [link](Pretrain/data_file/DATA_Prepare.md) to download MAVL checkpoints. It can be used for all zero-shot && finetuning tasks 
 
 * **Zero-Shot Classification:**

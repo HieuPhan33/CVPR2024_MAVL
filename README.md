@@ -16,8 +16,8 @@ If you find our work useful, please cite our paper.
 
 ```
 @article{phan2024decomposing,
-    title={Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect  Vision-Language Matching Framework}, 
-    author={Minh Hieu Phan and Yutong Xie and Yuankai Qi and Lingqiao Liu and Liyang Liu and Bowen Zhang and Zhibin Liao and Qi Wu and Minh-Son To and Johan W. Verjans},
+    title={Decomposing Disease Descriptions for Enhanced Pathology Detection: A Multi-Aspect  Vision-Language Pre-training Framework}, 
+    author={Vu Minh Hieu Phan and Yutong Xie and Yuankai Qi and Lingqiao Liu and Liyang Liu and Bowen Zhang and Zhibin Liao and Qi Wu and Minh-Son To and Johan W. Verjans},
     year={2024},
     journal={arXiv preprint arXiv:2403.07636},
 }
@@ -225,9 +225,9 @@ Our pre-train code is given in ```Pretrain```.
 
 * Run `accelerate launch --multi_gpu --num_processes=4 --num_machines=1 --num_cpu_threads_per_process=8 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_resnet.yaml --bs 124 --num_workers 8`
 
-Note: The reported results in our paper are obtained by pre-training on 4 x A100 for 60 epochs. We provided the checkpoint [here](Pretrain/data_file/DATA_Prepare.md).
+Note: The reported results in our paper are obtained by pre-training on 4 x A100 for 60 epochs. We provided the checkpoints [here](Pretrain/data_file/DATA_Prepare.md). We found that ckpts at later stage (`checkpoint_full_46.pth`) yields higher zero-shot classification accuracy. Ckpt at earlier stage (`checkpoint_full_40.pth`) yields more stable accuracy on visual grounding.
 
-We also conducted a lighter pre-training schedule with 2 x A100 for 40 epochs using mixed precision training, achieving similar zero-shot classification results. Checkpoints for this setup are also available [here](Pretrain/data_file/DATA_Prepare.md).
+We also conducted a lighter pre-training schedule with 2 x A100 for 40 epochs using mixed precision training, achieving similar zero-shot classification results. Checkpoint for this setup is also available [here](Pretrain/data_file/DATA_Prepare.md).
 
 ```
 accelerate launch --multi_gpu --num_processes=2 --num_machines=1 --num_cpu_threads_per_process=8 --mixed_precision=fp16 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_short.yaml --bs 124 --num_workers 8

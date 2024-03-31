@@ -1,11 +1,14 @@
-test_file: '/data/data/covid_rural/test.csv'
+test_file: '/data/VLM/data/covid_rural/test.csv'
 disease_book: 'observation explanation.json'
 concept_book: '../Pretrain/concept_gen/gpt4_mimic_covidr.json'
+# concept_book: '../../medslip/Pretrain/concept_gen/gpt4_mimic_covid.json'
 
 dataset: 'covid-r'
-root: '/data/data/covid_rural'
+root: '/data/VLM/data/covid_rural'
 target: 'covid19'
 model_path: '../checkpoints/checkpoint_full_40.pth'
+# model_path: '../../medslip/checkpoints/cl_global_1e-1_true/checkpoint_40.pth'
+
 
 image_res: 224
 test_batch_size: 512

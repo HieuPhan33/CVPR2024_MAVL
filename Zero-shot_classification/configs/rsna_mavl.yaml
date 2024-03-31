@@ -1,12 +1,11 @@
-test_file: '/data/data/rsna/test.csv'
+test_file: '/data/VLM/data/rsna/test.csv'
 disease_book: 'observation explanation.json'
 concept_book: '../Pretrain/concept_gen/gpt4_mimic.json'
 
 dataset: 'rsna'
-root: '/data/data/rsna'
+root: '/data/VLM/data/rsna'
 model: mavl
-# model_path: '../checkpoints/checkpoint_full_40.pth'
-model_path: '../../medslip/checkpoints/cl_global_1e-1_true/checkpoint_40.pth'
+model_path: '../checkpoints/checkpoint_full_46.pth'
 
 
 image_res: 224

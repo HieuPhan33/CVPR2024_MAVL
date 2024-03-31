@@ -10,6 +10,8 @@ This work leverages LLM 🤖 to decompose disease descriptions into a set of vis
 
 <img width="848" src="src/overview_distance.jpg">
 
+## 📝 Citation
+
 If you find our work useful, please cite our paper.
 
 ```
@@ -19,6 +21,7 @@ If you find our work useful, please cite our paper.
     year={2024},
     journal={arXiv preprint arXiv:2403.07636},
 }
+
 ```
 <h2>Comparisons with SOTA image-text pre-training models under zero-shot classification on 5 datasets.</h2>
 
@@ -181,7 +184,7 @@ If you find our work useful, please cite our paper.
 </table>
 
 
-## Download Necessary Files
+## 💡 Download Necessary Files
 To get started, install the gdown library:
 ```bash
 pip install -U --no-cache-dir gdown --pre
@@ -191,7 +194,7 @@ Then, run ```bash download.sh```
 
 The MIMIC-CXR2 needs to be downloaded from [physionet](https://physionet.org/content/mimic-cxr-jpg/2.0.0/).
 
-## Library Installation
+## 🚀 Library Installation
 We have pushed the docker image with necessary environments.
 You can directly create a docker container using our docker image:
 ```
@@ -230,7 +233,7 @@ We also conducted a lighter pre-training schedule with 2 x A100 for 40 epochs us
 accelerate launch --multi_gpu --num_processes=2 --num_machines=1 --num_cpu_threads_per_process=8 --mixed_precision=fp16 train_MAVL.py --root /data/2019.MIMIC-CXR-JPG/2.0.0 --config configs/MAVL_short.yaml --bs 124 --num_workers 8
 ```
 
-## Downstream datasets:
+## 📦 Downstream datasets:
 Links to download downstream datasets are:
 * [CheXpert](https://stanfordaimi.azurewebsites.net/datasets/8cbd9ed4-2eb9-4565-affc-111cf4f7ebe2).
 * [ChestXray-14](https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345).
@@ -240,7 +243,7 @@ Links to download downstream datasets are:
 * COVIDx-CXR-2 - The [official link](https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md) on Kaggle is down. The publicly available expanded version, called COVIDx-CXR4 is released [here](https://www.kaggle.com/datasets/andyczhao/covidx-cxr2). They encompass COVIDx-CXR-2 as subset. Please use our dataset csv splits to reproduce the results on COVIDx-CXR-2 subset version.
 * Covid Rural - The [official link](https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=70226443) includes raw DICOM datasets. We use preprocessed data provided [here](https://github.com/haimingt/opacity_segmentation_covid_chest_X_ray/tree/master/covid_rural_annot).
 
-## Quick Start:
+## 🚀 Quick Start:
 Check this [link](Pretrain/data_file/DATA_Prepare.md) to download MAVL checkpoints. It can be used for all zero-shot && finetuning tasks 
 
 * **Zero-Shot Classification:**
@@ -254,7 +257,7 @@ Check this [link](Pretrain/data_file/DATA_Prepare.md) to download MAVL checkpoin
     We give segmentation and classification finetune code on in ```Sample_Finetuning_SIIMACR```. Modify the path, and finetune our model by ```python I1_classification/train_res_ft.py --config configs/dataset_name_mavl.yaml``` or ```python I2_segementation/train_res_ft.py --config configs/dataset_name_mavl.yaml```
 
 
-## Acknowledgement
+## 🙏 Acknowledgement
 Our code is built upon https://github.com/MediaBrain-SJTU/MedKLIP. We thank the authors for open-sourcing their code.
 
 Feel free to reach out if you have any questions or need further assistance!

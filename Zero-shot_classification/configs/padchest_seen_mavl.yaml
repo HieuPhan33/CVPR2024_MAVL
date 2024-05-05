@@ -1,9 +1,9 @@
-test_file: '/data/VLM/data/PadChest/test.csv'
+test_file: '../data/padchest/test.csv'
 disease_book: 'observation explanation_padchest_rare.json'
 concept_book: '../Pretrain/concept_gen/gpt4_mimic_padchest_rare.json'
 
 dataset: 'padchest'
-root: '/data/VLM/data/PadChest/'
+root: '/data/data/PadChest/'
 model: 'mavl'
 model_path: '../checkpoints/checkpoint_37.pth'
 

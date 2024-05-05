@@ -9,7 +9,7 @@ model: 'mavl'
 model_path: '../checkpoints/checkpoint_full_40.pth'
 
 image_res: 224
-test_batch_size: 128
+test_batch_size: 512
 
 d_model: 256
 base_model: 'resnet50'
@@ -22,5 +22,5 @@ H: 4
 text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
 self_attention: True
 pretrained: True
-mode: feature
+mode: text
 class: unseen

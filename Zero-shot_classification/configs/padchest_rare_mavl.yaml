@@ -22,5 +22,5 @@ H: 4
 text_encoder: 'emilyalsentzer/Bio_ClinicalBERT'
 self_attention: True
 pretrained: True
-mode: feature
+mode: text
 class: rare

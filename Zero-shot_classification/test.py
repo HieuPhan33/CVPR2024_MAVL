@@ -187,31 +187,11 @@ def test(config):
                 'drainage', 'distention', 'shift', 'stent', 'pressure', 'lesion', 'finding', 'borderline', 'hardware', 'dilation', 'chf', 'redistribution', 'aspiration',
                 'tail_abnorm_obs', 'excluded_obs'
             ]
-    # padchest_seen_class = [
-    #     'normal', 'pleural effusion', 'atelectasis', 'pneumonia', 'consolidation', 'fracture', 'emphysema', 'cardiomegaly', 'mass', 'nodule', 'edema',
-    #     'pacemaker', 'catheter', 'pneumothorax', 'tracheal shift', 'vertebral compression', 'pulmonary fibrosis', 'mediastinal mass'
-    # ]
-    # padchest_seen_class = [
-    #     'normal', 'pleural effusion', 'atelectasis', 'pneumonia', 'consolidation', 'fracture', 'emphysema', 'cardiomegaly', 'mass', 'nodule', 'edema',
-    #     'pacemaker', 'catheter', 'pneumothorax', 'tracheal shift', 'vertebral compression', 'pulmonary fibrosis', 'mediastinal mass'
-    # ]
-    # padchest_seen_class = [
-    #     'normal', 'atelectasis', 'cardiomegaly', 'consolidation', 'edema', 'pleural effusion', 'pneumonia', 'pneumothorax'
-    # ]
+
+
     padchest_seen_class = ['normal', 'pleural effusion', 'pacemaker', 'atelectasis', 'pneumonia', 'consolidation', 'cardiomegaly', 'emphysema', 
                            'nodule', 'edema', 'pneumothorax', 'fracture', 'mass', 'catheter']
-    # padchest_seen_class =  ['cardiomegaly',
-    #            'edema',
-    #            'consolidation',
-    #            'pneumonia',
-    #            'atelectasis',
-    #            'pneumothorax',
-    #            'pleural effusion',
-    #            'fracture',
-    #            'normal',
-    #            'callus rib fracture', 'vertebral fracture','clavicle fracture', 'humeral fracture', 'rib fracture',
-    #            'dual chamber device', 'electrical device', 'single chamber device',
-    #            'sclerotic bone lesion', 'blastic bone lesion','lytic bone lesion']
+
 
     padchest_rare = ['suture material', 'sternotomy', 'supra aortic elongation', 'metal', 'abnormal foreign body', 'central venous catheter via jugular vein', 'vertebral anterior compression', 'diaphragmatic eventration', #'consolidation', 
     'calcified densities', 'volume loss', 'single chamber device', 'vertebral compression', 'bullas', 'axial hyperostosis', 'aortic button enlargement', 'calcified granuloma', 'clavicle fracture', 'dual chamber device', 'mediastinic lipomatosis',
@@ -226,7 +206,6 @@ def test(config):
         'pulmonary venous hypertension', 'cervical rib', 'loculated pleural effusion', 
         'flattened diaphragm' 
     ]
-
 
     padchest_unseen_class = list(set(padchest_unseen_class + padchest_rare))
     if config['dataset'] == 'chexray':
@@ -392,16 +371,12 @@ def test(config):
     # location is 
     AUROCs = compute_AUCs(gt, pred, len(target_class))
     AUROC_avg = np.array(AUROCs).mean()
-    # print('The average AUROC is {AUROC_avg:.4f}'.format(AUROC_avg=AUROC_avg))
-    # for i in range(len(target_class)):
-    #     print('The AUROC of {} is {}'.format(target_class[i], AUROCs[i]))
+
     max_f1s = []
     accs = []
     recalls = []
     precisions = []
-        # location_np = location_pred[i].cpu().numpy().tolist()
-        # location_names = [ana_book[int(l)] for l in location_np]
-        # print(location_names)
+
 
         
     for i in range(len(target_class)):
